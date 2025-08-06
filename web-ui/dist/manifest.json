@@ -1,0 +1,47 @@
+{
+  "name": "Clarity - Privacy-First Cognitive Partner",
+  "short_name": "Clarity",
+  "description": "Your privacy-first cognitive partner for communication support. Built with Gemma 3n, 100% offline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Recording",
+      "short_name": "Record",
+      "description": "Start voice recording for AI assistance",
+      "url": "/?action=record"
+    },
+    {
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Access privacy controls and settings",
+      "url": "/settings"
+    }
+  ]
+}

@@ -11,10 +11,12 @@ import {
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { useToast, ToastProvider, ToastViewport } from '@/hooks/use-toast'
+import { useToast } from '@/hooks/use-toast'
+import { ToastProvider, ToastViewport } from '@/components/ui/toast'
 import { useModelStore } from '@/stores/model-store'
 import { useDemoStore } from '@/stores/demo-store'
 import { useOllamaStore } from '@/stores/ollama-store'
+import { openRouterAPI } from '@/lib/api'
 
 import ChatInterface from '@/components/ChatInterface'
 import HistoryView from '@/components/HistoryView'

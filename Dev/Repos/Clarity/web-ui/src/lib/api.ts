@@ -39,7 +39,14 @@ export class OpenRouterAPI {
       hasApiKey: !!this.apiKey,
       hasModel: !!this.model,
       hasUrl: !!this.url,
-      apiKeyLength: this.apiKey?.length || 0
+      apiKeyLength: this.apiKey?.length || 0,
+      apiKeyPrefix: this.apiKey?.substring(0, 8) || 'none',
+      model: this.model,
+      url: this.url,
+      appUrl: this.appUrl,
+      mode: import.meta.env.MODE,
+      isDev: import.meta.env.DEV,
+      isProd: import.meta.env.PROD
     })
   }
 

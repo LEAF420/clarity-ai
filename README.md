@@ -4,7 +4,7 @@
 
 [![Kaggle Competition](https://img.shields.io/badge/Kaggle-Gemma%203n%20Showcase-blue)](https://www.kaggle.com/competitions/gemma-3n-showcase)
 [![License](https://img.shields.io/badge/License-Gemma%20Use%20Policy-green)](LICENSES/Gemma_Use_Policy.md)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-orange)](https://github.com/your-org/clarity)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-orange)](https://github.com/LEAF420/clarity-ai)
 
 ## 🎯 For Judges - Quick Demo Guide
 
@@ -100,7 +100,7 @@ User Input → Privacy Check → Model Selection → Local Processing → Struct
 ### **Quick Installation**
 ```bash
 # Clone repository
-git clone https://github.com/your-org/clarity.git
+git clone https://github.com/LEAF420/clarity-ai.git
 cd clarity
 
 # Install dependencies

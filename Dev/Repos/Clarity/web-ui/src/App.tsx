@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -6,8 +6,7 @@ import {
   Shield, 
   MessageSquare, 
   History, 
-  Globe,
-  ExternalLink
+  Globe
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -155,10 +154,7 @@ function App() {
     })
   }
 
-  // Handler for header logo click (shows confirmation dialog)
-  const handleHeaderLogoClick = () => {
-    setShowResetDialog(true)
-  }
+
 
   // Show onboarding if not complete
   if (!isOnboardingComplete) {

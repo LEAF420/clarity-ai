@@ -287,7 +287,7 @@ function App() {
             <div className="container mx-auto px-4 py-4">
               <div className="flex items-center justify-between text-sm text-muted-foreground">
                 <div className="flex items-center space-x-4">
-                  <span>{getFooterText()}</span>
+                  <span>Documents</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <a 
@@ -296,7 +296,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="hover:text-foreground transition-colors"
                   >
-                    Documents
+                    GitHub
                   </a>
                 </div>
               </div>

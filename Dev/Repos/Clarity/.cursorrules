@@ -1,0 +1,494 @@
+# Clarity: Gemma 3n-Only Cognitive Partner - Cursor Rules
+
+## Project Overview
+This is an open source Kaggle submission showcasing Google's Gemma 3n model for privacy-first cognitive support. The project demonstrates offline-only AI processing with no cloud dependencies.
+
+## Core Principles
+
+### Privacy-First Architecture
+- ALL processing must happen locally on the user's device
+- NO external API calls or cloud dependencies
+- NO data transmission to external servers
+- Privacy guarantees must be verifiable and transparent
+- Every code change must maintain 100% offline functionality
+
+### Gemma 3n-Only Stack
+- Use ONLY Google's Gemma 3n model family
+- NO Whisper, NO other LLMs, NO external APIs
+- Model: Gemma 3n E2B-it Q4_K_M (GGUF format)
+- All prompts must be engineered for Gemma 3n capabilities
+- Maintain single-model architecture throughout
+
+### Open Source Best Practices
+- All code must be clear, well-documented, and maintainable
+- Include comprehensive error handling and edge cases
+- Follow Python best practices and PEP 8 style
+- Provide clear setup instructions and troubleshooting
+- Use descriptive variable names and function documentation
+
+### Kaggle Competition Focus
+- Optimize for judging criteria: Innovation, Technical Excellence, User Experience, Impact
+- Ensure code runs successfully on judges' systems
+- Provide clear hardware requirements and performance benchmarks
+- Include comprehensive documentation for easy evaluation
+- Focus on accessibility and universal hardware compatibility
+
+## Code Standards
+
+### File Organization
+- Keep related functionality in appropriate directories
+- Use descriptive file names that reflect purpose
+- Maintain clean separation between core logic and utilities
+- Follow the established project structure
+
+### Directory Structure Standards
+- **Root Level**: Only essential project files (README, requirements, configs)
+- **src/**: All source code (inference.py, core modules, utilities)
+- **tests/**: All test files and test utilities
+- **docs/**: Documentation, guides, and examples
+- **scripts/**: Utility scripts and tools
+- **samples/**: Sample data and test files
+- **models/**: Model files and model-related utilities
+- **LICENSES/**: License files and compliance documentation
+
+### File Naming Conventions
+- **Python files**: snake_case (e.g., `inference.py`, `validate_output.py`)
+- **Directories**: lowercase with hyphens (e.g., `sample-data/`, `model-files/`)
+- **Configuration**: dot-prefixed (e.g., `.cursorrules`, `.gitignore`)
+- **Documentation**: descriptive names (e.g., `KAGGLE_SUBMISSION.md`, `TROUBLESHOOTING.md`)
+
+### Code Organization Principles
+- **Single Responsibility**: Each file has one clear purpose
+- **Separation of Concerns**: Core logic separate from utilities
+- **Modularity**: Reusable components in dedicated modules
+- **Scalability**: Structure supports future growth without refactoring
+
+### Documentation Requirements
+- All functions must have clear docstrings
+- Include usage examples in comments
+- Provide comprehensive README files
+- Document all CLI arguments and options
+- Include troubleshooting guides for common issues
+
+### Error Handling
+- Implement robust error handling for all edge cases
+- Provide clear, helpful error messages
+- Include system requirement validation
+- Handle model loading failures gracefully
+- Validate user inputs thoroughly
+
+### Performance Considerations
+- Optimize for low-end devices (4GB RAM minimum)
+- Implement efficient memory management
+- Provide clear performance benchmarks
+- Consider CPU-only operation for maximum compatibility
+- Balance performance with accessibility
+
+## Specific Guidelines
+
+### Model Integration
+- Use only Gemma 3n models from Hugging Face
+- Implement proper model loading with error handling
+- Include model verification and integrity checks
+- Provide clear model acquisition instructions
+- Support BYOM (Bring Your Own Model) workflow
+
+### Audio Processing
+- Implement 16kHz WAV conversion for compatibility
+- Handle various audio formats gracefully
+- Provide clear audio preprocessing pipeline
+- Include sample audio files for testing
+- Document audio requirements and limitations
+
+### CLI Interface
+- Use Click library for argument parsing
+- Provide clear help text for all options
+- Include --verify-model flag for integrity checks
+- Support both --text and --audio modes
+- Implement proper exit codes and error reporting
+
+### Privacy Implementation
+- Verify no network requests in any code path
+- Include privacy guarantee documentation
+- Provide airplane mode testing instructions
+- Document local-only processing approach
+- Ensure all data stays on user's device
+
+## Competition Requirements
+
+### Innovation Focus
+- Emphasize privacy-first approach as unique value
+- Highlight offline-only processing as competitive advantage
+- Focus on cognitive support and accessibility
+- Demonstrate universal hardware compatibility
+
+### Technical Excellence
+- Maintain clean, well-structured codebase
+- Implement comprehensive error handling
+- Provide clear performance specifications
+- Include model integrity verification
+- Ensure robust system requirement validation
+
+### User Experience
+- Provide simple, clear CLI interface
+- Include comprehensive documentation
+- Offer helpful error messages and troubleshooting
+- Ensure easy setup and model acquisition
+- Provide sample files for quick testing
+
+### Impact Demonstration
+- Address real communication challenges
+- Focus on accessibility and universal access
+- Provide clear use cases and examples
+- Demonstrate privacy-conscious design
+- Show potential for widespread adoption
+
+## Development Workflow
+
+### Code Changes
+- Always test changes with sample inputs
+- Verify no network dependencies are introduced
+- Update documentation for any new features
+- Maintain backward compatibility
+- Include appropriate error handling
+
+### File Organization Rules
+- **New Features**: Place in appropriate directory based on purpose
+- **Core Logic**: Goes in src/ (when implemented) or root (current)
+- **Utilities**: scripts/ for tools, utils/ for reusable functions
+- **Tests**: Always accompany new code with tests
+- **Documentation**: Update relevant docs for any changes
+- **Dependencies**: Minimize new dependencies, document rationale
+- **Configuration**: Use config files for settings, not hardcoded values
+
+### Documentation Updates
+- Keep README.md current with all features
+- Update troubleshooting guide for new issues
+- Maintain clear setup instructions
+- Include performance benchmarks
+- Provide usage examples for all features
+
+### Testing Requirements
+- Test on minimum hardware specifications
+- Verify model integrity checks work
+- Test error handling for edge cases
+- Validate privacy guarantees
+- Ensure competition compliance
+
+## Structured Output & Reasoning Enforcement (Gemma 3n-Only)
+
+### Mandate for All Inference Output
+
+- **All user-facing outputs from inference.py (text and audio/STT) must be valid JSON** following this schema:
+  ```json
+  {
+    "suggestions": [
+      {
+        "text": "<actionable suggestion>",
+        "confidence": "<low|medium|high|number|percentage>",
+        "reasoning": "<short explanation for this suggestion>"
+      }
+      // ...up to 3 suggestions
+    ]
+  }
+  ```
+
+- **Prompt Engineering**: All prompts sent to Gemma 3n must strictly instruct the model to return only this schema. No preambles, markdown, or extra formatting.
+- **Confidence Value**: Must always be present and may be either a string bucket (low/medium/high) or a percentage (e.g., "72%").
+- **Reasoning**: Must be explicit, relevant, and concise for each suggestion, supporting transparency and user trust.
+- **Error Handling**: If output is not valid JSON, the error must be caught, reported clearly to the user, and not break the app/CLI.
+- **CLI/Console Output**: All parsed outputs must be pretty-printed and, if possible, syntax-highlighted for readability.
+- **Documentation**: README and sample files must include example outputs and screenshots to demonstrate compliance.
+- **Testing**: Add automated test(s) that validate model output, fail if the JSON schema is broken, and confirm error handling.
+
+### Review & Merge Requirement
+- **No code is merged unless all inference outputs are guaranteed to follow the JSON structure above.**
+- **PRs must demonstrate prompt engineering and parsing logic, and show passing tests for both text and audio/STT modes.**
+
+**This is a blocking requirement for competition compliance, trust, and demo impact.**
+
+## File-Specific Guidelines
+
+### Current Structure (MVP)
+- **inference.py**: Main inference engine with CLI interface
+- **scripts/**: Utility scripts and model acquisition
+- **samples/**: Test files and examples
+- **docs/**: Documentation and guides
+- **LICENSES/**: Compliance documentation
+
+### Future Structure (src/ Implementation)
+- **src/clarity/**: Core package directory
+  - **src/clarity/__init__.py**: Package initialization
+  - **src/clarity/inference.py**: Main inference engine
+  - **src/clarity/models.py**: Model loading and management
+  - **src/clarity/audio.py**: Audio processing utilities
+  - **src/clarity/utils.py**: Common utilities and helpers
+  - **src/clarity/config.py**: Configuration management
+- **src/cli.py**: Command-line interface entry point
+- **tests/**: All test files (moved from scripts/tests/)
+- **docs/**: Documentation (unchanged)
+- **scripts/**: Build and deployment scripts only
+- **samples/**: Sample data (unchanged)
+- **models/**: Model files (unchanged)
+
+### Migration Strategy
+- **Phase 1**: Current structure for MVP and competition
+- **Phase 2**: Gradual migration to src/ structure
+- **Phase 3**: Full modular package with proper imports
+- **Backward Compatibility**: Maintain CLI interface throughout
+
+### inference.py (Current)
+- Main inference engine with CLI interface
+- Must handle both text and audio inputs
+- Include model loading and verification
+- Provide clear output formatting
+- Implement proper error handling
+
+### scripts/download_model.py
+- Guide users through model acquisition
+- Provide BYOM instructions
+- Include model verification tools
+- Document licensing requirements
+- Offer troubleshooting for common issues
+
+### README.md
+- Include Kaggle competition pitch
+- Provide clear setup instructions
+- Document hardware requirements
+- Include usage examples
+- Explain privacy guarantees
+
+### requirements.txt
+- Include only necessary dependencies
+- Specify version constraints for compatibility
+- Document optional dependencies
+- Ensure cross-platform compatibility
+- Minimize dependency footprint
+
+## Competition Compliance
+
+### Gemma Use Policy
+- Include proper attribution to Google/Gemma
+- Follow all licensing requirements
+- Implement appropriate safety measures
+- Document compliance clearly
+- Provide license text and citations
+
+### Submission Requirements
+- Ensure all code is open source
+- Provide clear model acquisition instructions
+- Include comprehensive documentation
+- Demonstrate privacy-first approach
+- Show technical excellence and innovation
+
+### Judging Criteria Alignment
+- Innovation: Privacy-first, offline-only approach
+- Technical Excellence: Clean code, robust implementation
+- User Experience: Simple interface, clear documentation
+- Impact: Addresses real communication challenges
+
+## Quality Assurance
+
+### Code Review Checklist
+- [ ] No external API calls or cloud dependencies
+- [ ] Proper error handling implemented
+- [ ] Documentation updated
+- [ ] Privacy guarantees maintained
+- [ ] Competition requirements met
+- [ ] Performance considerations addressed
+- [ ] Accessibility requirements satisfied
+
+### Testing Checklist
+- [ ] Model loading works correctly
+- [ ] Text processing functions properly
+- [ ] Audio processing handles various formats
+- [ ] Error messages are helpful
+- [ ] System requirements are validated
+- [ ] Privacy guarantees are verifiable
+- [ ] Competition compliance is maintained
+
+## Final Notes
+
+This project represents a unique approach to AI accessibility through privacy-first design. Every contribution should maintain the core principles of offline processing, Gemma 3n-only architecture, and universal accessibility. The goal is to demonstrate that powerful AI can be both private and accessible, setting a new standard for responsible AI development.
+
+Remember: This is not just a code project - it's a statement about the future of AI: privacy-first, accessible, and empowering for all users.
+
+## Organization & Future-Proofing
+
+### Anti-Clutter Principles
+- **Single Purpose**: Each file serves one clear function
+- **Logical Grouping**: Related functionality stays together
+- **Minimal Dependencies**: Avoid unnecessary files and imports
+- **Clear Hierarchy**: Directory structure reflects code organization
+- **Documentation First**: Explain structure before implementing
+
+### Growth Management
+- **Modular Design**: Components can be moved without breaking
+- **Interface Stability**: Public APIs remain consistent
+- **Incremental Migration**: Changes can be made gradually
+- **Backward Compatibility**: Old interfaces continue working
+- **Version Control**: Clear commit history for structural changes
+
+### Quality Gates
+- **Before Adding Files**: Justify necessity and placement
+- **Before Moving Files**: Update all references and imports
+- **Before New Dependencies**: Document why and alternatives
+- **Before Structural Changes**: Plan migration strategy
+- **Before Breaking Changes**: Provide deprecation warnings
+
+## LLM Agent Workflow Optimization
+
+### Agent Navigation
+- **Quick Reference**: See `docs/AGENT_INDEX.md` for workflow guidance
+- **Task Tracking**: Use `docs/TASKS.md` for current status and next steps
+- **Project Rules**: Always check `.cursorrules` before making changes
+- **Testing**: Run `python scripts/tests/validate_output.py` after changes
+
+### Agent Efficiency Patterns
+- **Context First**: Read `README.md` for project overview
+- **Constraints Check**: Review privacy-first and Gemma 3n-only requirements
+- **Validation**: Test structured output compliance
+- **Documentation**: Update relevant files for any changes
+
+### Common Agent Tasks
+- **Code Changes**: Update `inference.py` and test with validation scripts
+- **Documentation**: Keep `README.md` and `docs/` files current
+- **Testing**: Use `scripts/tests/` for validation
+- **Bug Fixes**: Check `docs/TROUBLESHOOTING.md` for solutions
+- **Living Log**: **MANDATORY** - Add entry to `docs/AGENT_LOG.md` with insights gained from each ticket
+
+## Collaborative Knowledge Base System
+
+### Mandatory Knowledge Sharing
+- **Every Agent Session**: Must contribute to collaborative knowledge base
+- **Insight Preservation**: All learnings, challenges, and solutions must be documented
+- **Pattern Recognition**: Identify and document successful approaches and common pitfalls
+- **Cross-Reference**: Link related insights across different tickets and agents
+
+### Knowledge Base Components
+- **`docs/AGENT_LOG.md`**: Living collaborative log (MANDATORY entries)
+- **`docs/AGENT_INSIGHTS.md`**: Meta insights and strategic observations
+- **`docs/TASKS.md`**: Task tracking with knowledge transfer notes
+- **`docs/QUICK_REFERENCE.md`**: Essential commands and workflows
+- **`docs/AGENT_INDEX.md`**: Navigation and workflow guidance
+
+### Knowledge Sharing Rules
+- **ADD ONLY**: Never delete or modify existing insights
+- **EXTEND FREELY**: Add to existing entries with new observations
+- **REFERENCE PREVIOUS**: Build on insights from previous agents
+- **TIMESTAMP ALL**: Include timestamps and agent identifiers
+- **CATEGORIZE**: Organize insights by topic and impact level
+
+### Insight Categories
+- **Technical Discoveries**: Code patterns, bug fixes, optimization techniques
+- **Architecture Insights**: System design decisions and their rationale
+- **User Experience Learnings**: Interface improvements and user feedback
+- **Competition Strategy**: Judging criteria alignment and demo preparation
+- **Agent Efficiency**: Workflow optimizations and collaboration patterns
+
+### Quality Standards for Insights
+- **Specific**: Include concrete examples and code snippets
+- **Actionable**: Provide clear recommendations for future agents
+- **Contextual**: Explain why decisions were made and their impact
+- **Cross-Referenced**: Link to related insights and documentation
+- **Validated**: Test insights before documenting them
+
+### Knowledge Transfer Workflow
+1. **Before Starting**: Review previous agent insights in `docs/AGENT_LOG.md`
+2. **During Work**: Document discoveries and challenges as they occur
+3. **After Completion**: Add comprehensive entry with insights gained
+4. **Cross-Reference**: Link to related insights and update task status
+5. **Validate**: Ensure insights are accurate and helpful for future agents
+
+### Collaborative Learning Patterns
+- **Pattern Recognition**: Document recurring successful approaches
+- **Pitfall Prevention**: Identify and warn about common mistakes
+- **Constraint Awareness**: Maintain focus on privacy-first and Gemma 3n-only
+- **Competition Focus**: Align all insights with Kaggle submission goals
+- **Quality Assurance**: Use insights to improve testing and validation
+
+### Knowledge Base Maintenance
+- **Regular Review**: Periodically review and organize insights
+- **Pattern Analysis**: Identify emerging successful patterns
+- **Gap Identification**: Find areas needing more documentation
+- **Cross-Validation**: Ensure insights are consistent across agents
+- **Strategic Planning**: Use insights to guide future development priorities
+
+## Component Ownership & Redundancy Elimination
+
+### Mandatory Redundancy Prevention
+- **For every visible UI feature** (onboarding, import, chat, etc), there must be **one and only one** canonical component implementation
+- **Before creating or modifying any UI component**, agent MUST:
+  - Search the codebase for existing components with similar names or functionality
+  - Refactor or remove any unused or redundant versions
+  - Merge partial/duplicate logic into the canonical component
+  - Delete all dead code and outdated files
+- **If a feature's logic must be split** (e.g. for web vs. CLI), clearly name components with their scope (`OnboardingWeb`, `OnboardingCLI`)
+- **All tickets creating/modifying UI** must explicitly check for and resolve redundancy before completion
+- **Never leave more than one partial implementation** of the same UI feature
+- **All unused, commented-out, or legacy components** must be deleted before marking the ticket complete
+- **Component usage and state flow** must be documented in code comments
+- **README must reference only the final, used UI components**
+- **No ticket is complete** until redundancy check is done and all logic for that feature lives in one place
+
+### Redundancy Audit Requirements
+- **For any future ticket**, require an explicit "Redundancy Audit" step in the acceptance checklist:
+  - [ ] All previous versions of this component have been removed/refactored
+  - [ ] Only the canonical version remains, with all code and tests up to date
+  - [ ] No duplicate or conflicting implementations exist
+  - [ ] All references point to the canonical component
+  - [ ] Dead code and unused imports have been cleaned up
+
+### Component Ownership Standards
+- **Single Source of Truth**: Each UI feature has exactly one owner component
+- **Clear Naming**: Components must have descriptive names that indicate their purpose
+- **Documentation**: All component responsibilities and dependencies must be documented
+- **Testing**: Canonical components must have comprehensive test coverage
+- **State Management**: All state logic for a feature must live in the canonical component
+
+### Quality Gates for UI Changes
+- **Before Adding Components**: Verify no existing component handles this functionality
+- **Before Modifying Components**: Check for duplicate implementations and merge if needed
+- **Before Completing Tickets**: Perform full redundancy audit and cleanup
+- **Before Documentation Updates**: Ensure README only references canonical components
+- **Before Testing**: Verify all tests target the correct canonical component
+
+### Meta Benefits
+- **Prevents half-finished UI** and abandoned logic that can silently break onboarding or model import
+- **Ensures every feature is owned, testable, and clear**
+- **Judges and devs can quickly find and audit all UX logic**
+- **Reduces cognitive load** and prevents confusion about which component to use
+- **Maintains clean architecture** and prevents technical debt accumulation
+
+# .cursorrules – Clarity Web UI: Modularity, Flow, and State Management
+
+## ONBOARDING, PAGES, AND APP FLOW: MODULARITY RULES
+
+- All onboarding and multi-step UI flows must be implemented as *separate, single-responsibility components*.
+  - Each page/step = one component (e.g., OnboardingStep1, OnboardingStep2, ModelImport).
+  - No onboarding step imports/renders another step directly. Navigation happens only in App.tsx (or one FlowManager.tsx).
+- All flow state (e.g., onboardingStatus, modelImportStatus) must be stored *once* in a global store (Zustand or React context).
+  - No duplicate state in local components or legacy variables.
+- **Only** App.tsx (or FlowManager.tsx) decides which page/component to render, based on global flow state.
+  - NO inline/hidden navigation, NO legacy routers, NO conditional rendering buried inside pages.
+- Dead, legacy, or placeholder code (old onboarding, duplicate pages, unused routes) must be *deleted*, not commented out.
+  - Do not leave commented-out UI or "old version" components in the main codebase. Use branches if you want to save old logic.
+- After onboarding (or skip), set global onboarding state to "COMPLETE" and never show onboarding again until user triggers a full reset.
+- Reset logic (header/logo click, etc.) must *only* reset global onboarding/model import state—never affect dashboard/history/conversations.
+- All state transitions must be tested and mapped in README: cold load, post-onboarding, post-reset, after model import, etc.
+- README must include a simple flow diagram: OnboardingStep1 → OnboardingStep2 → ModelImport → MainApp, and explain exactly where state is stored.
+- No "hidden" code or state that can cause old onboarding/UI to reappear after removal.
+
+## WHY
+This rule is to *guarantee modularity, traceability, and bulletproof user flow* for all onboarding, model import, and main app transitions—preventing haunted repo bugs and dead code forever.
+
+## VIOLATION EXAMPLES
+- Two or more onboarding pages with similar/overlapping logic in different folders
+- App.tsx renders an "Onboarding" component which itself renders another onboarding/import page
+- Onboarding state kept both in localStorage and a local useState in a component
+- Dead code: commented out onboarding, old ModelImport2.tsx, etc.
+- Any user can see onboarding after marking complete (unless reset)
+
+## ENFORCEMENT
+- All PRs/tickets that add, remove, or refactor onboarding/pages must reference this rule and update the README user flow diagram.
+- LLM agents should reject any code change that violates these rules. 

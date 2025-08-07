@@ -364,8 +364,8 @@ For detailed troubleshooting, see [FAQ](docs/FAQ.md) and [Troubleshooting Guide]
 - **Community**: Join discussions and get help
 
 ### **Competition Feedback**
-- **Demo Video**: [Link to demo video] (coming soon)
-- **Live Demo**: Available during competition judging
+- **Demo Video**: [[Link to demo video]](https://www.youtube.com/watch?v=tleK7c9nJCs)
+- **Live Demo**: [Available during competition judging](https://clarity-gemma.netlify.app/)
 - **Technical Questions**: Contact via GitHub issues
 
 ### **Contributing**
@@ -394,7 +394,7 @@ VITE_OPENROUTER_API_KEY=your_api_key_here
 VITE_OPENROUTER_MODEL=google/gemma-3n-e4b-it:free
 VITE_OPENROUTER_URL=https://openrouter.ai/api/v1/chat/completions
 VITE_DEMO_MODE_ENABLED=true
-VITE_APP_URL=https://your-site-name.netlify.app
+VITE_APP_URL=https://clarity-gemma.netlify.app
 ```
 
 ### **Dependencies**

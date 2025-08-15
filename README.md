@@ -11,8 +11,8 @@
 **Clarity** is a revolutionary cognitive partner that runs entirely on your device using Google's Gemma 3n model. No cloud, no data transmission, no privacy compromises.
 
 ### 🚀 3-Minute Demo Setup:
-1. **Live Demo**: Visit [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app) (coming soon)
-2. **Local Setup**: `git clone [repo] && cd web-ui && npm install && npm run dev`
+1. **Live Demo**: Visit [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
+2. **Local Setup**: `git clone https://github.com/LEAF420/clarity-ai && cd web-ui && npm install && npm run dev`
 3. **Open Browser**: Navigate to `http://localhost:3000`
 4. **Complete Onboarding**: Follow the privacy-first setup flow
 5. **Import Model**: Drag-and-drop a Gemma 3n `.gguf` file OR use "Skip to Demo Mode"
@@ -87,7 +87,7 @@ User Input → Privacy Check → Model Selection → Local Processing → Struct
 ## 🚀 Getting Started
 
 ### **Live Demo**
-- **🌐 Netlify Deployment**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app) (coming soon)
+- **🌐 Netlify Deployment**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
 - **📱 PWA Installable**: Add to home screen on mobile devices
 - **🔒 Privacy Verified**: Check Network tab - zero outgoing requests
 
@@ -349,7 +349,7 @@ For detailed troubleshooting, see [FAQ](docs/FAQ.md) and [Troubleshooting Guide]
 - **Community**: Join discussions and get help
 
 ### **Competition Feedback**
-- **Demo Video**: [Link to demo video] (coming soon)
+- **Demo Video**: [Link to demo video]
 - **Live Demo**: Available during competition judging
 - **Technical Questions**: Contact via GitHub issues
 
@@ -363,7 +363,7 @@ We welcome contributions! Please see our contributing guidelines for:
 ## 🚀 Deployment
 
 ### **Netlify Deployment (Recommended)**
-- **🌐 Live Demo**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app) (coming soon)
+- **🌐 Live Demo**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
 - **📱 PWA Ready**: Installable on mobile devices
 - **🔒 Privacy Verified**: Zero network requests after model import
 

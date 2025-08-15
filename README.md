@@ -11,7 +11,7 @@
 **Clarity** is a revolutionary cognitive partner that runs entirely on your device using Google's Gemma 3n model. No cloud, no data transmission, no privacy compromises.
 
 ### 🚀 3-Minute Demo Setup:
-1. **Live Demo**: Visit [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
+1. **Live Demo**: Visit [https://clarity-gemma.netlify.app](https://clarity-gemma.netlify.app)
 2. **Local Setup**: `git clone https://github.com/LEAF420/clarity-ai && cd web-ui && npm install && npm run dev`
 3. **Open Browser**: Navigate to `http://localhost:3000`
 4. **Complete Onboarding**: Follow the privacy-first setup flow
@@ -87,7 +87,7 @@ User Input → Privacy Check → Model Selection → Local Processing → Struct
 ## 🚀 Getting Started
 
 ### **Live Demo**
-- **🌐 Netlify Deployment**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
+- **🌐 Netlify Deployment**: [https://clarity-gemma.netlify.app](https://clarity-gemma.netlify.app)
 - **📱 PWA Installable**: Add to home screen on mobile devices
 - **🔒 Privacy Verified**: Check Network tab - zero outgoing requests
 
@@ -363,7 +363,7 @@ We welcome contributions! Please see our contributing guidelines for:
 ## 🚀 Deployment
 
 ### **Netlify Deployment (Recommended)**
-- **🌐 Live Demo**: [https://clarity-ai.netlify.app](https://clarity-ai.netlify.app)
+- **🌐 Live Demo**: [https://clarity-gemma.netlify.app](https://clarity-gemma.netlify.app)
 - **📱 PWA Ready**: Installable on mobile devices
 - **🔒 Privacy Verified**: Zero network requests after model import
 
